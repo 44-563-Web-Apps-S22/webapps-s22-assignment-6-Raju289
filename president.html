@@ -22,38 +22,61 @@
     <div class = "container">
         <p id="result">This text will be replaced </p>
     </div>
+    
     <script> 
-    let correct = 0;
-    let wrong = 0;
-    var cntNew = 0;
-    function checkGuess (){
-        console.log("Getting form values")
-        password = document.getElementById("form_age").value
-        text = document.getElementById("form_nick").value
-        
-        out = document.getElementById("result")
-        if(password==text){
-            cntNew = 0;
-            correct = correct + 1;
-            out.innerHTML = "correct : " + correct +"wrong : " + wrong
-            alert("You got it right")  
-        } else {
-            cntNew = cntNew + 1;
-            wrong = wrong + 1;
-            out.innerHTML = "correct : " + correct + "wrong : " + wrong
-            alert("Wrong President")
-            if (cntNew >=3){
-                if (wrong >=3){
-                    incorrectcheckGuess()
+        let correct = 0;
+        let wrong = 0;
+        var cntNew = 0;
+        function checkGuess (){
+            console.log("Getting form values")
+            password = document.getElementById("form_age").value
+            text = document.getElementById("form_nick").value
+            
+            out = document.getElementById("result")
+            if(password==text){
+                cntNew = 0;
+                correct = correct + 1;
+                out.innerHTML = "correct : " + correct +"wrong : " + wrong
+                alert("You got it right")  
+            } else {
+                cntNew = cntNew + 1;
+                wrong = wrong + 1;
+                out.innerHTML = "correct : " + correct + "wrong : " + wrong
+                alert("Wrong President")
+                if (cntNew >=3){
+                    if (wrong >=3){
+                        incorrectcheckGuess()
+                    }
                 }
             }
         }
-    }
-    function incorrectcheckGuess(){
-        alert("Account Locked")
-    }
+        function incorrectcheckGuess(){
+            alert("Account Locked")
+        }
+        </script>
+        
+        <br>
+    <div class="container">
+        <img src="img1.jpg" id="swap1" height="100" width="100" alt="img1" onclick="swapImage()">
+    </div>
+    <script>
+        var useImage =1
+        function swapImage() {
+            var image = document.getElementById('swap1');
+            switch (useImage) {
+                case 1:
+                image.src = "img1.jpg"; useImage = 2;
+                    break;
+                case 2:
+                image.src = "img2.jpg"; useImage = 3;
+                    break;
+                case 3:
+                image.src = "img3.jpg"; useImage = 1;
+                    break;
+                default:
+                    break;
+            }
+        }
     </script>
-    
-    
 </body>
 </html>
